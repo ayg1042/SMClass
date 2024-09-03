@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    header{
+      /* position: fixed 화면에 해당위치에 고정 */
+      position: fixed;
+    }
+    ul{
+      list-style: none;
+    }
+    a{
+      text-decoration: none;
+      color: inherit;
+    }
+    li{
+      width: 225px;
+      /* box-sizing: border-box 자동으로 사이즈를 잡아줌 */
+      box-sizing: border-box;
+      height: 60px;
+      border: 1px solid black;
+      background: yellow;
+      float: left;
+      text-align: center;
+      line-height: 60px;
+    }
+    section{
+      clear: both;
+    }
+    h3{
+      margin-top: 200px;
+      margin-bottom: 30px;
+    }
+    img{
+      width: 900px;
+    }
+    .loc{
+      width: 900px;
+      /* height: 2000px; */
+      margin-left: 50px;
+      border: 1px solid black;
+      margin-bottom: 30px;
+    }
+    .align{
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="main" class="loc">
+    <header>
+      <ul>
+        <li><a href="#con1">장원영</a></li>
+        <li><a href="#con2">안유진</a></li>
+        <li><a href="#con3">리즈</a></li>
+        <li><a href="#con4">이서</a></li>
+      </ul>
+    </header>
+    <section>
+      <h3 id="con1">장원영 사진</h3>
+      <p>
+        <img src="img/jang1.jpg">
+        <img src="img/jang2.jpg">
+        <img src="img/jang3.jpg">
+      </p>
+      <div class="align"><a href="#main">Top↑</a></div>
+      <h3 id="con2">안유진 사진</h3>
+      <p>
+        <img src="img/an1.jpg">
+        <img src="img/an2.jpg">
+        <img src="img/an3.jpg">
+      </p>
+      <div class="align"><a href="#main">Top↑</a></div>
+      <h3 id="con3">리즈 사진</h3>
+      <p>
+        <img src="img/ri1.jpg">
+        <img src="img/ri2.jpg">
+        <img src="img/ri3.jpg">
+      </p>
+      <div class="align"><a href="#main">Top↑</a></div>
+      <h3 id="con4">이서 사진</h3>
+      <p>
+        <img src="img/e1.jpg">
+        <img src="img/e2.jpg">
+        <img src="img/e3.jpg">
+      </p>
+      <div class="align"><a href="#main">Top↑</a></div>
+    </section>
+  </div>
+
+</body>
+</html>
