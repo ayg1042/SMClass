@@ -1,0 +1,27 @@
+*{
+  border: 0;
+  padding: 0;
+}
+div{
+  width: 500px;
+  height: 300px;
+  background-color: #f0f000;
+  background-clip: content-box;
+  /* border-box, padding-box, content-box */
+  border: 20px dotted black;
+  padding: 100px;
+  margin: 50px;
+}
+p{
+  width: 500px;
+  height: 300px;
+  background: yellow;
+}
+#divimg{
+  width: 700px;
+  height: 500px;
+  border: 50px dashed black;
+  padding: 0;
+  background-clip: padding-box;
+  background-image: url(../img/s01.jpg);
+}
