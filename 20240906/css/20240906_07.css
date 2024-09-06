@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+section{
+  width: 1400px;
+  height: 748px;
+  background: url("../img/hana_background_01.jpg") no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+  margin-top: 200px;
+  padding-top: 100px;
+}
+#wrap{
+  width: 1200px;
+  height: 589px;
+  /* border: 1px solid black; */
+  margin: 0 auto;
+}
+.wrap1{
+  margin-bottom: 35px;
+}
+.wrap2{
+  width: 1200px;
+  display: flex;
+  box-sizing: border-box;
+}
+#wrap strong{
+  font-size: 30px;
+  color: #fff;
+}
+.inrLeft{
+  width: 447px;
+  height: 545px;
+  background: #fff;
+  padding-left: 40px;
+  /* border: 1px solid black; */
+}
+.inrLeft .cont{
+  width: 387px;
+  height: 218px;
+  /* margin: 0 auto; */
+  margin: 40px 0;
+  box-sizing: border-box;
+  /* border: 1px solid black; */
+}
+.inrCenter{
+  width: 447px;
+  height: 545px;
+  background: url("../img/hana_back_02.jpg") no-repeat;
+  background-size: cover;
+  /* border: 1px solid black; */
+  color: #fff;
+}
+.inrRight{
+  width: 306px;
+  height: 545px;
+  background: #fff;
+  /* border: 1px solid black; */
+}
+.inrLeft .cont-title{
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+.inrLeft .cont-text{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  line-height: 22px;
+  color: #666;
+}
+
+.inrLeft .cont-link{
+  font-size: 13px;
+  color: #333;
+  text-decoration: none;
+}
+
+.inrCenter .cont-title{
+  margin-top: 300px;
+  margin-left: 40px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+.inrCenter .cont-text{
+  margin: 10px 0 20px 40px;
+  /* margin-top: 10px;
+  margin-left: 40px;
+  margin-bottom: 20px; */
+  font-size: 15px;
+  line-height: 22px;
+}
+.inrCenter .cont-link{
+  margin: 10px 0 20px 40px;
+  font-size: 13px;
+  color: #fff;
+  text-decoration: none;
+}
+.inrRight .cont{
+  width: 220px;
+  height: 220px;
+  margin: 40px 0 35px 40px;
+  border-radius: 90%;
+  box-sizing: border-box;
+  /* border: 1px solid black; */
+}
+.inrRight .cont img{
+  border-radius: 50%;
+}
+.inrRight .cont-title{
+  margin-left: 40px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+.inrRight .cont-text{
+  margin: 10px 0 20px 40px;
+  font-size: 15px;
+  line-height: 22px;
+  color: #666;
+}
+.inrRight .cont-link{
+  margin: 10px 0 20px 40px;
+  font-size: 13px;
+  color: #333;
+  text-decoration: none;
+}

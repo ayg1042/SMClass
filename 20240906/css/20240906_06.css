@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+section{
+  width: 100%;
+  height: 755px;
+  background: #ffe6cf;
+  margin-top: 100px;
+  box-sizing: border-box;
+  padding: 75px 0 65px;
+  letter-spacing: -0.4px;
+}
+#theme-list{
+  width: 1200px;
+  height: 536px;
+  /* border: 1px solid black; */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+#theme-list .img{
+  width: 588px;
+  height: 536px;
+  /* border: 1px solid black; */
+  box-sizing: border-box;
+}
+#theme-list .img img{
+  width: 100%;
+}
+#theme-list .teme-list-cont{
+  width: 558px;
+  height: 536px;
+  /* border: 1px solid black; */
+  box-sizing: border-box;
+}
+.teme-list-cont h4{
+  width: 125px;
+  color: #333;
+  /* letter-spacing: -0.4px; */
+  font-size: 15px;
+  font-weight: 700;
+  border-bottom: 3px solid #111;
+  padding-bottom: 8px;
+  box-sizing: border-box;
+  margin: 16px  0 17px;
+}
+.teme-list-cont h3{
+  font-size: 30px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 30px;
+}
+.teme-list-cont p{
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+.teme-list-cont .data{
+  width: 373px;
+  height: 102px;
+  margin-bottom:17px;
+  display: flex;
+}
+.teme-list-cont .data .d-img{
+  width: 102px;
+  height: 102px;
+}
+.teme-list-cont .data .d-img img{
+  width: 100%;
+  height: 100%;
+}
+.teme-list-cont .data .d-cont{
+  width: 251px;
+  height: 102px;
+  margin-left: 20px;
+}
+.teme-list-cont .data .d-cont h3{
+  font-size: 15px;
+  font-weight: 600;
+  padding-top: 3px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  /* letter-spacing: -0.4px; */
+}
+.teme-list-cont .data .d-cont p{
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
+}
+.teme-list-cont .data .d-cont h4{
+  font-size: 15px;
+  font-weight: 600;
+  color: #111;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.teme-list-cont .data .d-cont strong{
+  font-size: 13px;
+  color: #111;
+}
