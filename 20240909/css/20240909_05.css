@@ -1,0 +1,57 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+#container{
+  width: 800px;
+  height: 800px;
+  border: 5px solid black;
+  margin: 50px auto;
+  position: relative;
+}
+div{
+  width: 200px;
+  height: 200px;
+  font-size: 30px;
+  text-align: center;
+}
+#d01{
+  background: yellow;
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  z-index: 3;
+}
+#d02{
+  background: green;
+  position: absolute;
+  left: 200px;
+  top: 200px;
+  z-index: 4;
+  /* z-index: 숫자가 가장 높은게 우선순위가 높다 */
+}
+#d03{
+  background: pink;
+  position: absolute;
+  top: 150px;
+  left: 250px;
+  z-index: 6;
+}
+#d04{
+  background: blue;
+  position: absolute;
+  left: 600px;
+  top: 600px;
+}
+#d05{
+  background: gray;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+#d06{
+  background: red;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+}
