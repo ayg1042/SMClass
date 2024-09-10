@@ -1,0 +1,28 @@
+a{
+  text-decoration: none;
+  color: inherit;
+}
+input[type="text"]{
+  background: #efefef;
+}
+input[type="text"]:focus{
+  background: yellow;
+}
+input[type="checkbox"], input[type="radio"]{
+  opacity: 0;
+  width: 24px;
+}
+input[type="checkbox"] + label, input[type="radio"] + label{
+  background: url(../img/radio_off.jpg) no-repeat 0px 2px;
+  width: 24px;
+  height: 24px;
+  margin-left: -24px;
+  padding-left: 24px;
+}
+input[type="checkbox"]:checked + label, input[type="radio"]:checked + label{
+  background: url(../img/radio_on.jpg) no-repeat 0px 2px;
+  width: 24px;
+  height: 24px;
+  margin-left: -24px;
+  padding-left: 24px;
+}

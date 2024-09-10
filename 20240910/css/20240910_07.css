@@ -1,0 +1,31 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.section-body{
+  width: 1200px;
+  height: 1000px;
+  margin: 50px auto 0;
+  text-align: center;
+}
+h1{
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+.wrapper{
+  width: 380px;
+  height: 40px;
+  margin: 0 auto 30px;
+}
+.note-table, .note-table th, .note-table td{
+  border-collapse: collapse;
+}
+.note-table{
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}

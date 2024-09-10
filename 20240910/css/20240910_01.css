@@ -1,0 +1,22 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+div{
+  width: 60%;
+  height: 2000px;
+  border: 1px solid black;
+  text-align: justify;
+  /* 다단 개수 생성 */
+  column-count: 3;
+  /* 다단의 줄 생성 */
+  column-rule: 2px dotted black;
+  /*
+  column-count: 3;
+  넓이와는 상관없이 분활해준다.
+  
+  다단 넓이 설정
+  column-width: 300px;
+  widht에 따라 분활해준다.
+  */
+}
