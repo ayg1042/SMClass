@@ -1,0 +1,10 @@
+@media screen and (max-width:1400px){
+  #right_fixed{
+    display: none;
+  }
+}
+@media screen and (max-width:1200px){
+  .top_menu, .logo, .quick_menu{
+    display: none;
+  }
+}

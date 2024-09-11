@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/20240911_05.css">
+  <link rel="stylesheet" type="text/css" href="css/20240911_14.css">
+  <link rel="stylesheet" type="text/css" href="../20240910/css/20240910_02.css">
+  <link rel="stylesheet" type="text/css" href="../20240909/css/20240909_06.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <title>Document</title>
+</head>
+<body>
+  <div id="right_fixed">
+    <div class="chatting">
+      <div></div>
+      <div>채팅상담</div>
+    </div>
+    <div class="ai_chatting">
+      <div></div>
+      <div>AI 채팅상담</div>
+    </div>
+    <div class="itmes">최근 본 상품(0)<span></span></div>
+    <div class="top">▲TOP</div>
+  </div>
+  <!-- <div>
+    <img src="img/h01.jpg">
+  </div>
+  <img src="img/h01.jpg"> -->
+  <header></header>
+    <div class="top_menu">
+      <ul>
+        <li id="top_menu_1"><a href="#">회원가입</a></li>
+        <li id="top_menu_2"><a href="#">로그인</a></li>
+        <li id="top_menu_3"><a href="#">고객행복센터</a></li>
+        <li id="top_menu_4"><a href="#">배송정보검색</a></li>
+        <li id="top_menu_5"><a href="#">기프트카드 등록</a></li>
+      </ul>
+    </div>
+    <nav>
+      <div class="logo">
+        <h1></h1>
+      </div>
+      <div class="menu">
+        <ul>
+          <li id="menu_1"><a href="#">COOKIT소개</a></li>
+          <li id="menu_2"><a href="#">COOKIT메뉴</a></li>
+          <li id="menu_3"><a href="#">리뷰</a></li>
+          <li id="menu_4"><a href="#">이벤트</a></li>
+          <li id="menu_5"><a href="#">MY쿡킷</a></li>
+        </ul>
+      </div>
+      <div class="quick_menu">
+        <ul>
+          <li>
+            <a href="#" id="quick_menu1">
+              <div>장바구니</div>
+            </a>
+          </li>
+          <li>
+            <a href="#" id="quick_menu2">
+              <div>메뉴찾기</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <section>
+    <h1>NOTICE</h1>
+    <div class="wrapper">
+      <form action="#" name="sFrm" method="get">
+        <select name="category">
+          <option value="all">전체</option>
+          <option value="title">제목</option>
+          <option value="bcontent">내용</option>
+          <option value="name">작성자</option>
+        </select>
+        <input type="text" name="search_txt" id="search_txt">
+        <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+    </div>
+    <table>
+      <colgroup>
+        <col width="10%">
+        <col width="*">
+        <col width="15%">
+        <col width="15%">
+        <col width="12%">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>작성일</th>
+          <th>조회수</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+      </tbody>
+      <script>
+        var data = "";
+        for(var i = 0; i < 10; i++){
+          data += "<tr>";
+          data += "<td>" + (i + 1) + "</td>";
+          data += "<td><a href='#'>예방관련 안내</a></td>";
+          data += "<td>관리자</td>";
+          data += "<td>2024-09-10</td>";
+          data += "<td>100</td>";
+          data += "</tr>";
+        }
+        document.getElementById("tbody").innerHTML = data;
+      </script>
+    </table>
+    <ul class="page-num">
+      <li class="first"></li>
+      <li class="prev"></li>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li class="next"></li>
+      <li class="last"></li>
+    </ul>
+    <div class="write">
+      <a href="#">쓰기</a>
+    </div>
+  </section>
+
+</body>
+</html>

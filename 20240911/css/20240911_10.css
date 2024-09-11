@@ -1,0 +1,15 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+div{
+  width: 100%;
+  height: 820px;
+  background: url(../img/a01.jpg) no-repeat;
+}
+@media screen and (max-width:800px){
+    div{
+      background: url(../img/a02.jpg) no-repeat;
+      background-position: 0 -300px;
+  }
+}

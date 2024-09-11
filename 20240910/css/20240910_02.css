@@ -91,11 +91,12 @@ td:nth-child(2){
   top: 2px;
 }
 .page-num{
-  margin: 35px auto;
+  margin-top: 35px;
   text-align: center;
   font-size: 16px;
   display: flex;
-  width: 400px;
+  width: 100%;
+  justify-content: center;
 }
 .page-num li{
   width: 36px;
