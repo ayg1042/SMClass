@@ -1,0 +1,141 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul, li, dd, dt, dl{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  list-style: none;
+  letter-spacing: -0.03em;
+}
+.main{
+  width: 650px;
+  padding: 20px;
+  line-height: 24px;
+  border: 1px solid black;
+}
+.message-box{
+  margin-bottom: 25px;
+  padding: 25px;
+  background: #f8f8f8;
+  border: 1px solid black;
+}
+.message-box span{
+  display: block;
+  color: #454545;
+  line-height: 24px;
+}
+.form{
+  position: relative;
+  margin: -15px 0 30px 0;
+  padding: 25px;
+  border: 1px solid black;
+}
+.form label{
+  font-size: 15px;
+  font-weight: 700;
+  margin-right: 12px;
+}
+.form input{
+  height: 27px;
+}
+.form input[type="text"]{
+  margin-right: 5px;
+    padding: 0 5px;
+    width: 60px;
+    text-align: center;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+}
+.form span{
+  font-size: 16px;
+}
+.form .dash{
+  color: #b7b7b7;
+  margin: 0 15px;
+}
+.form input[type=button] {
+  background-color: #0aaf6b;
+  width: 70px;
+  color: #fff;
+  font-weight: 700;
+  /* background-color: #656565; */
+  border: 0;
+  cursor: pointer;
+}
+.form input[type=reset] {
+  width: 70px;
+  color: #fff;
+  font-weight: 700;
+  background-color: #656565;
+  border: 0;
+  cursor: pointer;
+}
+.form .compute {
+  position: absolute;
+  right: 25px;
+}
+.form dt, .form dd {
+  float: left;
+  display: inline-block;
+  font-size: 14px;
+}
+.form dl {
+  margin: 10px 0 18px 0;
+}
+.form dt {
+  width: 20%;
+  float: left;
+  display: inline-block;
+  font-size: 14px;
+}
+.form dd {
+  width: 80%;
+  font-weight: 700;
+  color: #eb4f3a;
+}
+.form li, .form li label {
+  font-size: 13px;
+  font-weight: 700;
+}
+.form li label {
+  display: inline-block;
+  width: 21%;
+}
+.form li label.dv1 {
+  width: 18.5%;
+}
+.form li label.dv2 {
+  width: 14.5%;
+}
+.form li li {
+  float: left;
+  width: 25%;
+  height: 35px;
+  color: #fff;
+  line-height: 35px;
+  text-align: center;
+}
+.form li li.low-weight {
+  width: 25%;
+  background-color: #329ae3;
+}
+.form li li.regular {
+  width: 20%;
+  background-color: #95c520;
+}
+.form li li.overweight {
+  width: 18%;
+  background-color: #ee942a;
+}
+.form li li.obesity {
+  width: 36.9%;
+  background-color: #f15232;
+}
