@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>삼항조건연산자</title>
+</head>
+<body>
+  <script>
+    // 숫자 3개를 입력받아 3개 출력하세요
+    var a = Number(prompt("숫자 1"));
+    var b = Number(prompt("숫자 2"));
+    var c = Number(prompt("숫자 3"));
+
+    document.write(a > b ? (a > c ? a : c) : (b > c ? b : c));
+
+    // document.write(a, b, c);
+
+    // 숫자 1개를 입력받아 짝수입니다. 홀수입니다. 라고 출력
+    // var a = Number(prompt("숫자 1"));
+    // document.write( (a%2 == 0)?"짝수":"홀수");
+
+
+
+    // // 두수를 입력받아, 변수에 저장해서, 두수를 출력하시오.
+    // var a = Number(prompt("숫자 1"));
+    // var b = Number(prompt("숫자 2"));
+
+    // // 삼항식을 사용해서 큰수를 출력
+    // document.write( ((a > b) ? a:b) + "<br>");
+
+    // document.write(a + "<br>");
+    // document.write(b);
+
+    // var a = 10;
+    // var b = 3;
+    // var result = a > b ? "정답입니다.":"오답입니다.";
+    // document.write(result);
+  </script>
+</body>
+</html>
