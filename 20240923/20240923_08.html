@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 오늘날짜를 출력하세요.
+    // ex) 2024/09/23/월요일
+    var to_day = new Date();
+    var to_year = to_day.getFullYear();
+    var to_month = to_day.getMonth() + 1;
+    var to_date = to_day.getDate();
+    var to_days = to_day.getDay();
+    var days = ["일요일", "월요일", "화요일",
+    "수요일", "목요일", "금요일", "토요일"];
+    if(to_month < 10) to_month = "0" + to_month;
+    if(to_date < 10) to_date = "0" + to_date;
+    document.write(to_year + "/" + to_month + "/" + to_date + "/" + days[to_days] +"<br>");
+
+    var num = prompt("숫자 연속 입력");
+    var result = 0;
+    for(var i = 0; i < num.length; i++){
+      result += Number(num.charAt(i));
+    }
+    document.write("정답 : " + result);
+
+    // for(var i = 0; i < num.length; i++){
+    //   if(num.charCodeAt(i) >= 48 && num.charCodeAt(i) <= 57){
+    //     result += Number(num.charAt(i));
+    //   }
+    // }
+  </script>
+</body>
+</html>

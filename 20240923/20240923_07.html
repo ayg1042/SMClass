@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var txt = "안녕하세요. 반갑습니다. 다음에 뵈요. 다음에 안녕.";
+    document.write("문자 : " + txt + "<br>");
+    document.write("문자 길이 : " + txt.length + "<br>");
+    // 중요 - charAt, substr, substring, indexOf, match
+    document.write("문자 1개 가져오기 : " + txt.charAt(7) + "<br>") // 문자 1개 가져오기
+    // substr - (시작지점, 시작지점 부터 개수)
+    document.write("문자 여러개 가져오기 : " + txt.substr(7, 6) + "<br>") // 문자 여러개 가져오기
+    document.write("문자 여러개 가져오기 : " + txt.substring(7, 13) + "<br>") // 문자 여러개 가져오기
+    document.write("문자 전체 가져오기 : " + txt.substring(0, txt.length) + "<br>") // 문자 여러개 가져오기
+    // indexOf
+    document.write("문자 존재 확인 : " + txt.indexOf('다음에') + "<br>") // indexOf()
+    document.write("문자 존재 확인 : " + txt.indexOf('에') + "<br>") // indexOf()
+    document.write("문자 존재 확인 : " + txt.indexOf('1') + "<br>") // indexOf()
+    // match
+    document.write("문자 존재 확인 : " + txt.match('다음') + "<br>") //
+    document.write("문자 존재 확인 : " + txt.match('1') + "<br>") //
+    // search
+    document.write("문자 존재 확인 : " + txt.search('다음') + "<br>") //
+    document.write("문자 존재 확인 : " + txt.search('1') + "<br>") //
+    // replace
+    document.write("문자 존재 확인 : " + txt.replace('요', '까') + "<br>") //
+    document.write("문자 존재 확인 : " + txt.replace('다음에', 'next') + "<br>") //
+    document.write("문자 존재 확인 : " + txt.replace(/다음에/g, 'next') + "<br>") // 정규표현식 g:발생할 모든 패턴
+    
+    // toLowerCase() - 소문자 변경, toUpperCase() - 대문자 변경
+    // split - 1개의 문자를 배열로 리턴
+    var arr = txt.split(" ");
+    document.write("배열 리턴 : " + txt.split(' ') + "<br>") // 정규표현식 g:발생할 모든 패턴
+    document.write("배열 : " + arr[1] + "<br>") // 정규표현식 g:발생할 모든 패턴
+  </script>
+</body>
+</html>
