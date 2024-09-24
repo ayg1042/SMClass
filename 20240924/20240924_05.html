@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>classlist</title>
+  <style>
+    h1{
+      width: 100px;
+      height: 60px;
+      text-align: center;
+    }
+    .cls{
+      border: 2px solid black;
+    }
+    .txt{
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .color{
+      color: red;
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="h" class="cls txt">제목</h1>
+  <button id="btn" onclick="btn()">클래스 추가/삭제</button>
+  <script>
+    function btn(){
+      var a = document.querySelector('#h').classList;
+      // class - cls, txt, color
+      // add - 클래스 추가, remove - 클래스 삭제, contains - 클래스 존재확인
+      // toggle - 삭제추가
+      // document.querySelector('#h').classList.remove('color');
+      // document.querySelector('#h').classList.add('color');
+      document.querySelector('#h').classList.toggle('color');
+      console.log(a.contains("color"));
+    }
+  </script>
+</body>
+</html>

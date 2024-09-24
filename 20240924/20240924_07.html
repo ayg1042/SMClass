@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #txt{
+      width: 100px;
+      height: 40px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div id="txt">0</div>
+  <button onclick="cale('+')">더하기</button>
+  <button onclick="cale('-')">빼기</button>
+  <button onclick="cale('*')">곱하기</button>
+  <button onclick="cale('/')">나누기</button>
+
+  <script>
+    function cale(symbol){
+      var num1 = 50;
+      var num2 = 20;
+      var ans = 0;
+      if(symbol == '+') ans = num1 + num2;
+      else if(symbol == '-') ans = num1 - num2;
+      else if(symbol == '*') ans = num1 * num2;
+      else if(symbol == '/') ans = num1 / num2;
+      document.querySelector('#txt').innerText = ans;
+    }
+  </script>
+</body>
+</html>

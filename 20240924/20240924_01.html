@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function conBtn(){
+
+      // querySelector = id, class, 태그
+      document.querySelector('#d01').innerText = "안녕하세요";
+      document.querySelector('.con').style.color = "blue";
+      var c_color = document.querySelectorAll('.com');
+      for(var i = 0; i < c_color.length; i++){
+        c_color[i].style.color = "blue"
+      }
+
+      document.querySelector('h2').style.color = 'red';
+
+      // console.log(document.getElementById('con'));
+      // var c_color = document.getElementsByClassName('con');
+      // console.log(c_color);
+      // c_color.style.color = "red";
+    }
+  </script>
+</head>
+<body>
+  <h1 class="con">제목</h1>
+  <h2>부제목</h2>
+  <div class="con">내용을 입력합니다.</div>
+  <p class="con">좋은하루되세요.</p>
+  <span id="d01">자바스크립트 수업</span>
+  <button onclick="conBtn()"></button>
+</body>
+</html>

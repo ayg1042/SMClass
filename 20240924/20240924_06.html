@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>함수 - function</title>
+</head>
+<body>
+  <button onclick="a_input()">함수호출</button>
+  <br>
+  <div id="c1"></div>
+  <input type="text" id="txt1"><br>
+  <input type="text" id="txt2"><br>
+  <input type="text" id="txt3"><br>
+  <button onclick="send_txt()">확인</button>
+  <script>
+    function send_txt(){
+      var data = calc(
+      Number(document.querySelector('#txt1').value),
+      Number(document.querySelector('#txt2').value),
+      Number(document.querySelector('#txt3').value)
+      );
+      document.querySelector('#c1').innerText = data;
+    }
+    function calc(a, b, c){
+      return (a + b + c);
+    }
+    function a_input(){
+      console.log(1);
+      console.log(2);
+      b_input();
+    }
+    function b_input(){
+      document.write("안녕하세요.");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      width: 300px;
+      height: 200px;
+      border: 1px solid black;
+      background: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div id="back"></div>
+  <button onclick="prev()">이전</button>
+  <button onclick="naxt()">다음</button>
+  <script>
+    var count = 0;
+    var color = ['yellow', 'green', 'red', 'blue'];
+    var max = color.length - 1;
+    function naxt(){
+      if(count == max) count = 0;
+      else count++;
+      document.querySelector('#back').style.backgroundColor = color[count];
+    }
+    function prev(){
+      if(count == 0) count = max;
+      else count--;
+      document.querySelector('#back').style.backgroundColor = color[count];
+    }
+  </script>
+</body>
+</html>
