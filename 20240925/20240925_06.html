@@ -6,10 +6,11 @@
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <title>Document</title>
   <script>
+    var count = 1;
+    var update_arr = ""
     $(function(){
-      // 데이터 버튼 이벤트
-      $('#dataBtn').click(function(){
-        alert('데이터 로딩중...');
+        // 데이터 버튼 이벤트
+        // alert('데이터 로딩중...');
         // Ajax 선언
         $.ajax({
           url : "js/stuData.json",
@@ -19,7 +20,7 @@
           success : function(data){
             var h_data = '';
             for(var i = 0; i < data.length; i++){
-              var sub = Number(data[i].kor) + Number(data[i].math) + Number(data[i].eng)
+              var total = Number(data[i].kor) + Number(data[i].math) + Number(data[i].eng)
               h_data += `
                 <tr id="${i + 1}">
                   <td>${data[i].no}</td>
@@ -27,11 +28,15 @@
                   <td>${data[i].kor}</td>
                   <td>${data[i].eng}</td>
                   <td>${data[i].math}</td>
-                  <td>${sub}</td>
-                  <td>${Math.floor(Number(sub/3))}</td>
-                  <td><button class="delBtn">삭제</button></td>
+                  <td>${total}</td>
+                  <td>${(total/3).toFixed(2)}</td>
+                  <td>
+                    <button class="updateBtn">수정</button>
+                    <button class="delBtn">삭제</button>
+                  </td>
                 </tr>
                 `
+              count++;
             }
             $('#tbody').html(h_data);
           },
@@ -39,12 +44,102 @@
             alert('실패');
           }
         })
-      });
-      // document.click
+      // 삭제
       $(document).on('click', '.delBtn', function(){
         var del = $(this).closest('tr').attr('id');
-        $('#' + del).remove();
+        if(confirm(del+'번 학생을 삭제하시겠습니까?')) 
+        {
+          $('#' + del).remove();
+          alert('삭제되었습니다.');
+        }
       })
+
+      // 수정
+      $(document).on('click', '.updateBtn', function(){
+        $("#update, #update_cancel").show()
+        $("#create").hide()
+        var data = $(this).closest('tr').children();
+        // console.log("이름 " + data[1].textContent) // 이름
+        // console.log("국어 " + data[2].textContent) // 국어
+        // console.log("영어 " + data[3].textContent) // 영어
+        // console.log("수학 " + data[4].textContent) // 수학
+        // console.log($(this).parent().siblings().text())
+        update_arr = $(this).closest('tr').attr('id');
+        $('#name').val(data[1].textContent); // 이름
+        $('#kor').val(data[2].textContent); // 국어
+        $('#eng').val(data[3].textContent); // 영어
+        $('#math').val(data[4].textContent); // 수학
+      })
+      // 수정 취소
+      $(document).on('click', '#update_cancel', function(){
+        $("#create").show()
+        $("#update, #update_cancel").hide()
+        $('#name').val("");
+        $('#kor').val("");
+        $('#eng').val("");
+        $('#math').val("");
+      })
+      // 수정완료
+      $(document).on('click', '#update', function(){
+        if($('#name').val() != "" && $('#kor').val() != "" && $('#eng').val() != "" && $('#math').val() != ""){
+        $("#update, #update_cancel").hide()
+        $("#create").show()
+        var name = $('#name').val();
+        var kor = $('#kor').val();
+        var eng = $('#eng').val();
+        var math = $('#math').val();
+        var total = Number(kor) + Number(eng) + Number(math);
+        var avg = (total/3).toFixed(2);
+
+        var target = $("#" + update_arr).children()
+        console.log(name, kor, eng, math)
+        target[1].textContent = name;
+        target[2].textContent = kor;
+        target[3].textContent = eng;
+        target[4].textContent = math;
+        target[5].textContent = total;
+        target[6].textContent = avg;
+        $('#name').val("");
+        $('#kor').val("");
+        $('#eng').val("");
+        $('#math').val("");
+        }else alert("빈칸이 있으면 수정이 불가능 합니다.")
+      })
+
+      // 입력하기
+      $(document).on('click', '#create', function(){
+        if($('#name').val() != "" && $('#kor').val() != "" && $('#eng').val() != "" && $('#math').val() != ""){
+          var name = $('#name').val();
+          var kor = $('#kor').val();
+          var eng = $('#eng').val();
+          var math = $('#math').val();
+          var total = Number(kor) + Number(eng) + Number(math);
+          var avg = (total/3).toFixed(2);
+          var add_data = `
+            <tr id="${count}">
+              <td>${count}</td>
+              <td>${name}</td>
+              <td>${kor}</td>
+              <td>${eng}</td>
+              <td>${math}</td>
+              <td>${total}</td>
+              <td>${avg}</td>
+              <td>
+                <button class="updateBtn">수정</button>
+                <button class="delBtn">삭제</button>
+              </td>
+            </tr>
+          `;
+          $("#tbody").append(add_data); // 제일 뒤에
+          // $("#tbody").prepend(add_data); // 제일 앞에
+          $('#name').val("");
+          $('#kor').val("");
+          $('#eng').val("");
+          $('#math').val("");
+          count++;
+        }else alert("빈 공간이 있으면 입력이 불가능합니다.")
+      })
+
     })
   </script>
   <style>
@@ -69,21 +164,45 @@
       margin: 30px auto;
       border: 1px solid black;
     }
+    #wrap{
+      width: 600px;
+      margin: 20px auto;
+    }
+    #dataBtn{
+      width: 200px;
+      height: 40px;
+      margin-bottom: 20px;
+    }
+    form{
+      margin-bottom: 10px;
+    }
+    #update, #update_cancel{
+      display:none;
+    }
+    button{
+      width: 80px;
+      height: 40px;
+    }
   </style>
 </head>
 <body>
   <h1>게시판</h1>
-  <button id="dataBtn">데이터 가져오기</button>
-  <form>
-    <label>이름</label>
-    <input type="text" name="name"><br>
-    <label>국어</label>
-    <input type="text" name="kor" id="kor"><br>
-    <label>영어</label>
-    <input type="text" name="eng" id="eng"><br>
-    <label>수학</label>
-    <input type="text" name="math" id="math"><br>
-  </form>
+  <div>
+    <button id="dataBtn">데이터 가져오기</button>
+    <form>
+      <label>이름</label>
+      <input type="text" name="name" id="name"><br>
+      <label>국어</label>
+      <input type="text" name="kor" id="kor"><br>
+      <label>영어</label>
+      <input type="text" name="eng" id="eng"><br>
+      <label>수학</label>
+      <input type="text" name="math" id="math"><br>
+    </form>
+      <button type="button" id="update">수정하기</button>
+      <button type="button" id="update_cancel">수정취소</button>
+      <button type="button" id="create">입력하기</button>
+  </div>
   <table>
     <thead>
       <tr>
