@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>Document</title>
+  <style>
+    #main{
+      width: 800px;
+      margin: 30px auto;
+      text-align: center;
+    }
+    #wrap{
+      width: 800px;
+      height: 500px;
+      border: 3px solid black;
+      margin-top: 30px;
+    }
+    select{
+      width: 120px;
+      height: 40px;
+    }
+    button{
+      width: 120px;
+      height: 40px;
+    }
+  </style>
+  <script>
+    $(function(){
+
+      var stu_name = [];
+      var stu_age = [];
+
+      $.ajax({
+        url : "js/stuData.json",
+        type : "get",
+        data : "",
+        dataType : "json",
+        success : function(data){
+          // for(var i = 0; i < 5; i++){
+          //   stu_name.push(data[i].name)
+          //   stu_age.push(((data[i].kor + data[i].eng + data[i].math)/3).toFixed(2))
+          // }
+          // data에 있는 한개식 불러옴 index = 번째수, val = value
+          $.each(data, function(index, val){
+            // console.log(index);
+            console.log(index + " : " + val.name);
+            console.log(val.name.split(' ')[0]);
+            stu_name.push(val.name.split(' ')[1]);
+            stu_age.push(((val.kor + val.eng + val.math)/3).toFixed(2))
+          })
+        },
+        erroe : function(){
+          alert("데이터 불러오기 실패")
+        }
+      })
+
+      console.log(stu_name)
+      console.log(stu_age)
+
+      // btn 클릭시
+      $(document).on('click', '#btn', function(){
+        // alert('데이터 불러오기');
+        let stu_name2 = [];
+        let stu_age2 = [];
+        let firstNum = 0;
+        let lastNum = 0;
+        console.log("select 값 : " + $('#datalist').val());
+        lastNum = $('#datalist').val();
+        if($('#datalist').val() == 10) firstNum = 0;
+        else if($('#datalist').val() == 20) firstNum = 10;
+        else if($('#datalist').val() == 30) firstNum = 20;
+
+        // 해당되는 1개 가져오기
+        for(var i = firstNum; i < lastNum; i++ ){
+          stu_name2.push(stu_name[i]);
+          stu_age2.push(stu_age[i]);
+        }
+
+        // 그래프 그리기
+        const ctx = document.getElementById('myChart');
+        let chartStatus = Chart.getChart("myChart")
+        // 사용중이면
+        if(chartStatus != undefined){
+          console.log('success')
+          chartStatus.destroy();
+        }
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: stu_name2,
+            datasets: [{
+              label: '학생성적프로그램',
+              data: stu_age2,
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      });
+
+      
+    })
+  </script>
+</head>
+<body>
+  <div id="main">
+    <select name="datalist" id="datalist">
+      <option value="10">1-10</option>
+      <option value="20">11-20</option>
+      <option value="30">21-30</option>
+    </select>
+    <button id="btn">데이터 불러오기</button>
+    <br>
+    <h1>학생성적프로그램</h1>
+    <div id="wrap">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+
+</body>
+</html>

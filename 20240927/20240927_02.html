@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/20240927_01.css">
+  <title>Document</title>
+  <script>
+    // jquery
+    $(function(){
+      // 정규 표현식 /[체크 타입]{자릿수}/로 선언
+      // [] - 체크 타입 a-z A-Z
+      // ^ : 시작을 의미, not
+      // $ : 끝을 의미
+      // \d : [0-9]와 같음. 숫자만 입력가능
+      // (|) : (010|011)
+      // | : 또는
+      // ? : 1개가 조건에 맞는지 확인
+      // . : 모든 1개식 가져오기.
+      // * : 모두비교
+      // ex) 영어 a~z까지 3자 까지만 됨 abcb =>  abc까지만 확인함
+      let id_pattern = /^[a-zA-Z]{3,}$/;
+      let id_pattern2 = /^[a-z]{1}[a-zA-Z0-9_*]{1,7}$/;
+      // ㄱ-ㅎ, 가-힣 : ㄱ부터 ㅎ까지, 한글 인지 확인
+      let name_pattern = /^[ㄱ-ㅎ가-힣]{2,}$/;
+      let tel_pattern = /^[0-9]{2,3}-[0-9]{3,4}-\d{4}$/;
+      // let phon_pattern = /^(010|011|019)-[0-9]{3,4}-\d{4}$/;
+      let phon_pattern = /^01([0|1|6|7|9]?)-[0-9]{3,4}-\d{4}$/;
+      // pw ex) aabb11#1122
+      // 영문자 체크, 숫자 체크
+      let pw_pattern = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{3,5}$/;
+      // id_pattern.test('abc');
+      
+      // 아이디 1 체크
+      // $(document).on('click', '#membership', function(){
+      //   if(!(id_pattern.test($('#id').val()))){
+      //     alert('아이디 1 확인하세요');
+      //     return false
+      //   }else{
+      //     alert('아이디 1 성공');
+      //   }
+      // })
+      // 아이디 2 체크
+      // $(document).on('click', '#membership', function(){
+      //   if(!(id_pattern2.test($('#id2').val()))){
+      //     alert('아이디 2 확인하세요');
+      //     return false
+      //   }else{
+      //     alert('아이디 2 성공');
+      //   }
+      // })
+      // 이름 체크
+      // $(document).on('click', '#membership', function(){
+      //   if(!(name_pattern.test($('#name').val()))){
+      //   alert('이름 확인하세요')
+      //   return false
+      //   }
+      //   else{
+      //     alert('이름 성공');
+      //   }
+      // })
+      // 전화번호 체크
+      // $(document).on('click', '#membership', function(){
+      //   if(!tel_pattern.test($('#tel').val())){
+      //     alert('지역번호(2, 3)-국번(3, 4)-전화번호4자리\n입력 하셔야합니다.');
+      //     return false;
+      //   }else{
+      //     alert('성공');
+      //   }
+      // })
+      // 핸드폰번호 체크
+      // $(document).on('click', '#membership', function(){
+      //   if(!phon_pattern.test($('#phon').val())){
+      //     alert('010,011,019(3)-1234(4)-전화번호4자리만 입력 가능합니다.');
+      //     return false;
+      //   }else{
+      //     alert('성공');
+      //   }
+      // })
+      // 비밀번호 체크
+      $(document).on('click', '#membership', function(){
+        if(!pw_pattern.test($('#pw').val())){
+          alert('비밀번호는 영문자 1개, 숫자 1개, 특수문자 1개 이상\n3자리에서 5자리까지만 가능합니다.');
+          return false;
+        }else{
+          alert('성공');
+        }
+      })
+      
+    })
+  </script>
+</head>
+<body>
+  <h1>회원가입</h1>
+  <form action="#" name="frm" method="post">
+    <label>아이디</label>
+    <input type="text" name="id" id="id"><br>
+    <span>아이디는 영문자 3자리 이상가능</span><br>
+    <label>비밀번호</label>
+    <input type="text" name="pw" id="pw"><br>
+    <span>비밀번호는 영문자 1개, 숫자 1개, 특수문자 1개 이상 3자리에서 5자리까지만 가능</span><br>
+    <label>아이디2</label>
+    <input type="text" name="id2" id="id2"><br>
+    <span>첫째자리는 영문소문자가능, 줄째자리 이상부터는 영문대소문자, 숫자 가능
+      2자리이상, 8자리 이하
+    </span><br>
+    <label>이름</label>
+    <input type="text" name="name" id="name"><br>
+    <span>이름은 한글 2자리 이상가능</span><br>
+    <label>전화번호</label>
+    <input type="text" name="tel" id="tel"><br>
+    <span>지역번호(2, 3)-국번(3, 4)-전화번호4자리를 입력 가능</span><br>
+    <label>핸드폰번호</label>
+    <input type="text" name="phon" id="phon"><br>
+    <span>010,011,019(3)-1234(4)-전화번호4자리를 입력 가능</span><br>
+    <button type="button" id="membership">확인</button>
+  </form>
+</body>
+</html>

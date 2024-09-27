@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/20240927_01.css">
+  <title>Document</title>
+  <script>
+    // jquery
+    $(function(){
+      // 버튼클릭시 데이터가 입력되어 있는지 확인
+      $(document).on('click', '#membership', function(){
+        // 공란 확인
+        if($('#id').val() != '' && $('#number').val() != ''){
+
+          // 정규표현식
+
+          // 영문자 체크
+          // var eng = $('#eng').val();
+          // var check = false
+          // for(var i = 0; i < eng.length; i++){
+          //  if(eng[i] >= 'a' && eng[i] <= 'z'){
+          //   check = true
+          //  }else{
+          //   check = false
+          //   break;
+          //  }
+          // };
+          // if(!check){
+          //   alert('영어가 아닙니다.');
+          // }
+
+            // console.log(eng.charCodeAt(i))
+            // if(eng.charCodeAt(i) >= 'a' && eng.charCodeAt(i) <= 'z'){
+            //   alert('영어 입니다.')
+            // }else{
+            //   alert('영어가 아닙니다.')
+            // }
+          
+          // if($('#eng').val() >= 'a' && $('#eng').val() <= 'z'){
+          //   alert('영어 입니다.')
+          // }else{
+          //   alert('영어가 아닙니다.')
+          // }
+          // 숫자와 4자리 이상 입력해야함
+          if(isNaN($('#number').val()) || $('#number').val().length < 4){
+            alert('숫자와 4자리 이상 입력해야합니다.');
+            return false;
+          }
+
+          // // 숫자인지 확인하는 isNaN() javascript 문법
+          // if(isNaN($('#number').val())){
+          //   alert('숫자만 입력이 가능합니다. isNaN()');
+          //   return false;
+          // }
+          // // 숫자인지 확인하는 jquery 문법 $.isNumeric()
+          // if(!$.isNumeric($('#number').val())){
+          //   alert('숫자만 입력이 가능합니다. isNumeric()')
+          //   return false;
+          // }
+          // 길이 확인
+          if($('#id').val().length >= 3){
+
+          }else alert('3자리 이상 입력해주세요');
+        }else alert('입력되지 않은 정보가 있습니다.');
+        
+      })
+    })
+  </script>
+</head>
+<body>
+  <h1>회원가입</h1>
+  <form action="#" name="frm" method="post">
+    <label>아이디</label>
+    <input type="text" name="id" id="id"><br>
+    <label>번호</label>
+    <input type="text" name="number" id="number"><br>
+    <label>영문자 1개 입력</label>
+    <input type="text" name="eng" id="eng"><br>
+    <button type="button" id="membership">확인</button>
+  </form>
+</body>
+</html>

@@ -42,6 +42,7 @@ $(function(){
     var del_target = $(this).closest('tr').attr('id');
     $('#' + del_target).remove();
   })
+  // 추가
   $(document).on('click', '#create', function(){
     var name = $("#name").val()
     var kor = $("#kor").val()
