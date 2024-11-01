@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>링크만들기</title>
+  <style>
+    ul{
+      list-style: none;
+    }
+    a{
+      text-decoration: none;
+      color: inherit;
+    }
+    li{
+      width: 120px;
+      height: 40px;
+      border: 1px solid black;
+      background: yellow;
+      text-align: center;
+      line-height: 40px;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <a href="https://www.google.com"><li>구글</li></a>
+    <!--
+    target 
+    _blank = 새 창
+    _self = 현재 창(기본값)
+    -->
+    <a href="https://www.daum.net" target="_blank"><li>다음</li></a>
+    <li><a href="https://www.daum.net" target="_self">다음</a></li>
+    <a href="https://www.naver.com"><li>네이버</li></a>
+    <a href="img/j02.jpg" download="다운로드 파일 명">이미지 파일</a><br>
+    <a href="https://thumb.mt.co.kr/06/2023/07/2023071413085439188_1.jpg/dims/optimize/">장원영 이미지</a>
+  </ul>
+</body>
+</html>

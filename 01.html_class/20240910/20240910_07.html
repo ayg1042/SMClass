@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/20240910_07.css">
+  <title>Document</title>
+</head>
+<body>
+  <section class="section-body">
+    <h1>NOTICE</h1>
+    <div class="wrapper">
+      <form action="#" name="Frm" method="get">
+        <select name="category">
+          <option value="all">전체</option>
+          <option value="title">제목</option>
+          <option value="bcontent">내용</option>
+          <option value="name">작성자</option>
+        </select>
+        <input type="text" name="search_txt" id="search_txt">
+        <button type="button">버튼</button>
+      </form>
+    </div>
+    <table class="note-table">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>작성일</th>
+          <th>조회수</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+
+      </tbody>
+    </table>
+  </section>
+  <script>
+    var data = ""
+    for(var i = 0; i < 10; i++){
+      data += "<tr>"
+      data += "<td>"
+    }
+    document.getElementById("tbody").innerHTML = ""
+  </script>
+</body>
+</html>

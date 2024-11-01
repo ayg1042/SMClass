@@ -1,0 +1,40 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+img{
+  width: 200px;
+  display: inline-block;
+}
+#i01{
+  padding-left: 1px;
+  /*
+  숨겨지고 공간도 숨겨짐
+  display: none;
+  숨겨지고 공간은 남음
+  visibility: hidden; */
+}
+#i01:hover{
+  /* display: none; */
+  visibility: hidden;
+}
+span{
+  width: 200px;
+  height: 100px;
+  display: inline;
+  /* display: none, inline, inline-block */
+  padding-left: 50px;
+  margin-left: 50px;
+}
+#s01{
+  background: yellow;
+  border: 3px solid black;
+}
+#s02{
+  background: green;
+  border: 3px solid black;
+}
+#s03{
+  background: gray;
+  border: 3px solid black;
+}

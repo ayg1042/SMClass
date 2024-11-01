@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+ul, ol{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+table, th, td{
+  /* border:1px solid black; */
+  border-collapse: collapse;
+}
+th, td{
+  height: 42px;
+}
+th{
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  font-size: 16px;
+  font-weight: 700;
+  background: #f3f3f3;
+}
+td{
+  border-bottom: 1px solid silver;
+}
+section{
+  width: 1200px;
+  height: 1000px;
+  margin: 50px auto 0;
+  text-align: center;
+}
+h1{
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+table{
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+td:nth-child(2){
+  text-align: left;
+  padding-left: 10px;
+}
+.wrapper{
+  width: 380px;
+  height: 40px;
+  margin: 0 auto 30px;
+}
+.wrapper select{
+  width: 80px;
+  height: 40px;
+  border: 1px solid #666;
+  background: url(../img/search-box-select.png) no-repeat 90%;
+  appearance: none;
+  padding: 5px;
+  box-sizing: border-box;
+  /* background-position: 0 -5px; */
+  /* background-size: 95% 90%; */
+}
+.wrapper input{
+  width: 200px;
+  height: 40px;
+  font-size: 16px;
+  border: 1px solid #666;
+  padding-left: 10px;
+  box-sizing: border-box;
+  position: relative;
+  top: 2px;
+}
+.wrapper button{
+  width: 40px;
+  height: 40px;
+  background: #666;
+  color: white;
+  border: none;
+  font-size: 16px;
+  position: relative;
+  top: 2px;
+}
+.page-num{
+  margin-top: 35px;
+  text-align: center;
+  font-size: 16px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.page-num li{
+  width: 36px;
+  height: 35px;
+  border: 1px solid #989898;
+  margin: 0 3px;
+  line-height: 32px;
+  box-sizing: border-box;
+}
+.page-num .first{
+  background: url(../img/paging_first.png) no-repeat;
+  border: none;
+}
+.page-num .prev{
+  background: url(../img/paging_prev.png) no-repeat;
+  border: none;
+}
+.page-num .next{
+  background: url(../img/paging_next.png) no-repeat;
+  border: none;
+}
+.page-num .last{
+  background: url(../img/paging_last.png) no-repeat;
+  border: none;
+}
+.write a{
+  width: 120px;
+  height: 50px;
+  float: right;
+  border: 2px solid black;
+  line-height: 50px;
+}

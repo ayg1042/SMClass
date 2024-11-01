@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    p{
+      width: 400px;
+      height: 500px;
+      border: 1px solid black;
+      font-size: 17px;
+      font-weight: 700;
+      /* line-height 줄간격 */
+      line-height: 40px;
+      text-align: justify;
+      /* 글 양쪽 끝에 맞춰준다 */
+    }
+    h2{
+      width: 700px;
+      height: 200px;
+      border: 1px solid black;
+      font-size: 50px;
+      letter-spacing: 5px;
+      word-spacing: 5px;
+      /*
+      letter-spacing : 글자(자간) 사이 간격
+      word-spacing : 단어 사이 간격
+      */
+      text-shadow: 35px 35px 5px #545454;
+      /* 폰트 그림자 */
+      text-decoration: none;
+      /* line-decoration : line-through, underline, overline 글자에 선 */
+      /*
+      글자 색상
+      https://090501.tistory.com/100
+      */
+      /* color: rgb(0,0,0,0.4); 투명도 설정 가능*/
+      /* color: red; 문자색상적용 */
+      color: #000000; /* 16진수 코드 적용 #fff (같다면) */
+      line-height: 190px; /* 세로 가운데 정렬 */
+      margin: 0 auto; /* 사각모델을 가운데 정렬 */
+      /* padding-top: 60px; 세로 가운데 정렬
+      box-sizing: border-box; */
+      text-align: center; /* 글자 가운데 정렬 */
+    }
+    div{
+      width: 300px;
+      height: 100px;
+      border: 1px solid black;
+      /* white-space: nowrap; */
+      /* 칸[간격]에 영향을 받지 않는다 */
+      overflow: scroll;
+      /*
+      overflow : hidden
+      칸[간격]에 밖으로 나가면 숨겨준다.
+      scroll -> 스크롤 형식으로 바꿔준다.
+      */
+    }
+    h3{
+      width: 300px;
+      height: 100px;
+      border: 1px solid black;
+      white-space: nowrap; /* 줄단락을 없앰 */
+      overflow: hidden; /* 테두리를 벗어난것을 숨김 */
+      text-overflow: ellipsis; /* 말줄임표 */
+    }
+    /* hover : 마우스 위에 올림 */
+    h3:hover{
+      overflow: visible;
+      white-space: normal;
+    }
+  </style>
+</head>
+<body>
+  <h3>개인정보위(위원장 고학수)는 이러한 내용의 2025년도 예산안을 발표했다.</h3>
+  <div>
+    개인정보위(위원장 고학수)는 이러한 내용의 2025년도 예산안을 발표했다.
+    위원회 측은 기술·개발 분야에 집중 투자해 데이터 경제를 실현하고,
+    경상경비성 사업을 축소했다고 부연했다. 경상경비성 사업이란 정부가 행정 업무
+  </div>
+  <h2>글꼴 관련 스타일</h2>
+  <p>
+    개인정보위(위원장 고학수)는 이러한 내용의 2025년도 예산안을 발표했다.
+     위원회 측은 기술·개발 분야에 집중 투자해 데이터 경제를 실현하고, 
+    경상경비성 사업을 축소했다고 부연했다. 경상경비성 사업이란 정부가 행정 업무와 조직을 운영하는 데 필요한 비용을 뜻한다.
+  </p>
+
+</body>
+</html>

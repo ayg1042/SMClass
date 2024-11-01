@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/css" rel="stylesheet" href="css/20240912_02.css">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="btn()">이동</button>
+  <br>
+  <div class="main" id="d01">
+    <div class="move">
+      <img src="img/i01.jpg">
+    </div>
+  </div>
+  <script>
+    function btn(){
+      // alert("button");
+      // document.getElementById('d01').classList.add('on'); 추가
+      // document.getElementById('d01').classList.remove('on'); 삭제
+      document.getElementById('d01').classList.toggle('on'); // 추가 및 삭제
+    }
+  </script>
+</body>
+</html>

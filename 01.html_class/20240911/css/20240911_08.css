@@ -1,0 +1,38 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+#container{
+  width: 1200px;
+  height: 900px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+header{
+  width: 1200px;
+  height: 120px;
+  background: blue;
+  font-size: 40px;
+  text-align: center;
+  line-height: 120px;
+}
+section{
+  width: 1200px;
+  height: 600px;
+  display: flex;
+}
+.cont1{
+  width: 800px;
+  height: 600px;
+  background: yellow;
+}
+.cont2{
+  width: 400px;
+  height: 600px;
+  background: green;
+}
+footer{
+  width: 1200px;
+  height: 180px;
+  background: pink;
+}

@@ -1,0 +1,16 @@
+.main{
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  overflow: hidden;
+}
+.move{
+  transition: 2s all ease-in;
+}
+.move img{
+  width: 200px;
+}
+.on{
+  /* transform: rotate(180deg); */
+  border: 3px solid red;
+}

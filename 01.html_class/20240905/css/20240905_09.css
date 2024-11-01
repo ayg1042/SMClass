@@ -1,0 +1,28 @@
+*{
+  margin: 0;
+  padding: 0;
+  height: 2000px;
+}
+div{
+  width: 100%;
+  height: 700px;
+  border: 1px solid black;
+  background: url("../img/s03.jpg") no-repeat fixed;
+  background-size: cover;
+  /*
+  background-size는 background에 포함이 안된다.
+  패턴이 아닌 이미지를 백드라운드에 채우기
+  contain : 비율이 작은쪽을 채워준다(이미지 손실 없이)
+  cover : 가득 채움 (이미지 손실이 있음)
+  */
+  background-position: 0 -200px;
+  /*
+  이미지 이동이 가능하다 img는 안된다
+  background에서 position에 묶어서 사용 가능
+  */
+  background-attachment: fixed;
+  /*
+  fixed 이미지가 고정된다. scroll 이미지가 이동된다 
+  background에서 fixed 사용 가능
+  */
+}

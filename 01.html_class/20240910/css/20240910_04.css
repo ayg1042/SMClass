@@ -1,0 +1,14 @@
+h2{
+  color: blue;
+}
+/*  > 자식 선택자 */
+section > h2{
+  color: red;
+}
+/* h1 + ul 인접 형제 선택자 */
+h2 ~ ul{
+  border: 1px solid black
+}
+section a[href]{
+  background : yellow;
+}
