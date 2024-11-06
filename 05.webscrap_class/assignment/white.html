@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/board.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <title>포레스트 리솜</title>
+</head>
+<body>
+    <!-- 해더 부분 -->
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="/"><img src="images/img_logo_re_forest.png"></a>
+      </div>
+      <div class="nav_wrap">
+        <div class="quick_menu">
+          <ul>
+            <li><a href="#">회원예약</a></li>
+            <li><a href="#">패키지 예약</a></li>
+            <li><a href="#">부대시설 예약</a></li>
+            <li><a href="#">회원가입</a></li>
+            <li><a href="#">로그인</a></li>
+          </ul>
+        </div>
+        <script>
+          function m_over(){
+            document.querySelector(".navibg").style.display='block';
+          }
+
+          function m_leave(){
+            document.querySelector(".navibg").style.display='none';
+          }
+       </script>
+        <div class="menu" onmouseover="m_over()" onmouseleave="m_leave()" >
+          <ul>
+            <li><a href="#">포레스트</a></li>
+            <li><a href="#">스파&찜질방</a></li>
+            <li><a href="#">객실</a></li>
+            <li><a href="#">특별한 경험</a></li>
+            <li><a href="#">세미나 & 연회</a></li>
+            <li><a href="#">브랜드소개</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- 해더 부분 -->
+   <!-- 글 작성 부분 -->
+  <section id="my_white">
+    <h1>관리자 글쓰기</h1>
+    <hr>
+
+    <form action="#" name="write" method="post">
+      <table>
+        <colgroup>
+          <col width="15%">
+          <col width="85%">
+        </colgroup>
+        <tr>
+          <th>분류</th>
+          <td>
+            <div class="category-wrapper">
+              <select name="category" id="category">
+                <option value="notice">공지</option>
+                <option value="event">이벤트</option>
+              </select>  
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>제목</th>
+          <td>
+            <input id="white_input" type="text" name="title">
+          </td>
+        </tr>
+        <tr>
+          <th>내용</th>
+          <td>
+            <textarea id="white_textarea" name="content" cols="50" rows="10"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <th>이미지 표시</th>
+          <td>
+            <input type="file" name="file" id="file">
+          </td>
+        </tr>
+      </table>
+      <hr>
+      <div class="button-wrapper">
+        <button type="submit" class="write">작성완료</button>
+        <button type="button" class="cancel">취소</button>
+      </div>
+    </form>
+
+  </section>
+  <!-- 글 작성 부분 -->
+</body>
+</html>
