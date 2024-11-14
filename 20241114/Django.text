@@ -1,0 +1,117 @@
+
+MVT 모델
+Project_Name/urls.py -> App_Name/views.py
+
+--- 2024.11.14 ---
+
+장고 프로젝트 실행
+# New Project [프로젝트 생성]
+django-admin startproject [Project_Name]
+
+-- Project이름이 같은게 생성된다.
+Project_Name/Project_Name
+Project_Name/에서
+move Project_Name [변경할 이름]
+으로 변경 가능하다.
+변경 후 settings.py와 manage.py에
+변경한 이름으로 수정한다.
+settings.py
+WSGI_APPLICATION
+ROOT_URLCONF
+
+manage.py
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', '[변경].settings')
+
+-- app 생성
+# New app
+python manage.py startapp [App_Name]
+
+# App 추가 하고
+Project_Name/settings.py의
+INSTALLED_APPS =[]에
+App_Name.apps.[App_Name]Config 설정한다.
+
+# App 연결 설정
+Project_Name/urls.py에
+from django.urls import path, [include] 추가
+urlpatterns에
+path('App_name/', include('App_Name.urls')), 추가한다.
+
+# App urls.py 생성 및 설정
+from . import views 추가
+변수 app_name = 'App_Name'
+urlpatterns에
+path('url주소', views.[함수명], name='url이름')
+
+-- html 파일 ! 명령어 하기
+1. Extensions에서 Auto Close Tag 설치 후
+Add entry into auto-close-tag.activationOnLanguage
+내용 복사 후
+2. ctrl + ,
+3. setting 입력 -> Editor:Font Ligatures ? ->Edit in settings.json
+4. 복사한 내용 추가하기
+"emmet.includeLanguages": { "django-html": "html" },
+해당 내용 추가
+
+-- 한국어 설정
+Project_Name/settings.py의
+LANGUAGE_CODE = 'ko-kr'
+TIME_ZONE = 'Asia/Seoul'
+추가하기 및 수정하기
+
+-- DB 생성, 추가, 수정 등
+python manage.py migrate
+
+-- DB에 Table설치, 변경, 삭제, 추가 있는지 확인
+python .\manage.py makemigrations
+
+-- 관리자 등록
+python manage.py createsuperuser
+
+-- shell에서 db에 데이터 입력
+python manage.py shell
+from students.models import Student <- 해줘야함
+# insert
+qs = Student(s_name='hong1', s_major='컴퓨터공학', s_age=20, s_grade=1, s_gender='M')
+으로 입력 된다
+qs.save()로 저장한다.
+
+# select 복수
+sq = Student.objects.all()로 데이터를 가져올 수 있다.
+qs[0], qs[1]
+
+# select 1명
+qs = Student.objects.get(s_name='hong1')
+qs.s_name
+
+# update
+qs = Student.objects.get(s_name='hong1')
+qs.s_age = 25
+qs.save()
+
+# delete
+qs = Student.objects.get(s_name='hong1')
+qs.delete()
+qs.save()
+
+-- 서버 실행
+python -u manage.py runserver 0.0.0.0:8000
+-u : 실행되는 코드들 확인 가능하다.
+
+
+# ip : 네트워크 컴퓨터 주소
+# dms(domain name system) : 도메인주소를 ip주소로 변환
+# ex) www.naver.com -> 211.11.111.2
+
+# rest URL -> URL 데이터 맵핑
+# file:///C:/workspace/20241114/test2.html?id=aaa&pw=1111
+# file:///C:/workspace/20241114/aaa/1111/test2.html
+
+# 웹서버
+# 주로 정적인 데이터 요청 처리
+# 동적인 데이터 요청 시 애플리케이션 서버 에전달
+# 트레픽 제한, ip차단 등
+
+# 애플리케이션 서버
+# 주로 동적인 데이터 요청 처리
+# Database 연동
