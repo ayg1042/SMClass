@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>학생 전체 리스트</title>
+  <style>
+    .main, table{
+      text-align:center;
+      margin:20px auto;
+    }
+    table, th, td{
+      border: 1px solid black;
+      border-collapse:collapse;
+    }
+    th, td{
+      width: 150px;
+      height: 40px;
+      text-align: center;
+    }
+    button{
+      width: 200px;
+      height: 45px;
+    }
+  </style>
+  <script>
+    // javascript 주석
+  </script>
+</head>
+<body>
+  {% comment %} 
+    {{ 변수 선언 }}
+    <div>{{ list }}</div>
+  {% endcomment %}
+  <div class='main'>
+    <h2>학생 전체 리스트</h2>
+    <table>
+      <tr>
+        <th>이름</th>
+        <th>학과</th>
+      <th>학년</th>
+      <th>나이</th>
+      <th>성별</th>
+      <th>수정</th>
+      <th>삭제</th>
+    </tr>
+    {% if list %}
+      {% for i in list %}
+      <tr>
+        <td>{{ i.s_name}}</td>
+        <td>{{ i.s_major}}</td>
+        <td>{{ i.s_grade}}</td>
+        <td>{{ i.s_age}}</td>
+        <td>{{ i.s_gender}}</td>
+        <td><a href='#'>수정</a></td>
+        <td><a harf='#'>삭제</a></td>
+      </tr>
+      {% endfor%}
+    {% else %}
+      <tr>
+        <td colspan='7'>데이터가 존재하지 않습니다.</td>
+      </tr>
+    {% endif %}
+    </table>
+    <a href='/'><button>HOME</button></a>
+    <a href='/students/write'><button>학생등록</button></a>
+  </div>
+</body>
+</html>

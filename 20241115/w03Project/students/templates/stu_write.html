@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>student_write</title>
+</head>
+<body>
+  <h2>학생 정보 입력 페이지 입니다.</h2>
+  <form action='{% url 'students:stu_save' %}', method='post' name='stufrm'>
+    {% csrf_token %}
+    <label>이름</label>
+    <input type='text' name='name'><br>
+    <label>학과</label>
+    <input type='text' name='major'><br>
+    <label>학년</label>
+    <input type='text' name='grade'><br>
+    <label>나이</label>
+    <input type='text' name='age'><br>
+    <label>성별</label>
+    <input type='text' name='gender'><br>
+    <bottun><input type='submit' values='입력'></bottun>
+    <bottun><input type='reset' values='취소'></bottun>
+  </form>
+  <ul>
+    <li><a href='/'>HOME</a></li>
+    <li><a href='/students/list'>학생 정보 출력</a></li>
+  </ul>
+</body>
+</html>
