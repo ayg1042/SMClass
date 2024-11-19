@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>학생 추가 페이지</title>
+</head>
+<body>
+  <h2>학생 추가 페이지</h2>
+  <form action='{%url "students:write"%}' method='post' name='stufrm'>
+    {% csrf_token %}
+    <label>이름</label>
+    <input type='text' name='name'><br>
+    <label>전공</label>
+    <input type='text' name='major'><br>
+    <label>학년</label>
+    <input type='text' name='grade'><br>
+    <label>나이</label>
+    <input type='text' name='age'><br>
+    <label>성별</label>
+    <label for='M'>남</label>
+    <input type='radio' name='gender' id='M' value='M' checked>
+    <label for='F'>여</label>
+    <input type='radio' name='gender' id='F' value='F'><br>
+    <button type='button' onclick='stu_add()'>추가</button>
+    <button type='button' onclick='cansel()'>취소</button>
+  </form>
+  <script>
+    function stu_add(){
+      alert('추가 버튼')
+      stufrm.submit()
+    }
+    function cansel(){
+      location.href = '/'
+    }
+  </script>
+</body>
+</html>

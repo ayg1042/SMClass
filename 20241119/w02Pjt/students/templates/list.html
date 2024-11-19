@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>학생정보 출력</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <th>번호</th>
+      <th>이름</th>
+      <th>학과</th>
+      <th>정보</th>
+      <th>수정</th>
+      <th>삭제</th>
+    </tr>
+    {% for i in slist%}
+    <tr>
+      <td>{{i.id}}</td>
+      <td>{{i.name}}</td>
+      <td>{{i.major}}</td>
+      <td><button onclick="location.href='/students/{{i.name}}/view/'">정보</button></td>
+      <td><button onclick="location.href='/students/{{i.name}}/update/'">수정</button></td>
+      <td><button onclick='delbtn("{{i.id}}")'>삭제</button></td>
+    </tr>
+    {% endfor %}
+  </table>
+  <button onclick='location.href="/"'>홈으로 가기</button>
+  <button onclick='location.href="/students/write/"'>학생 추가하기</button>
+  <script>
+    function delbtn(id){
+      if (confirm(id+'번 삭제할까요?')){
+        location.href='/students/delete/?id='+id
+      }
+    }
+  </script>
+</body>
+</html>

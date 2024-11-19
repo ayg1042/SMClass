@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>stu_list</title>
+</head>
+<body>
+  <h2>학생 리스트</h2>
+  <table>
+    <tr>
+      <td>이름</td>
+      <td>전공</td>
+      <td>수정</td>
+      <td>삭제</td>
+    </tr>
+    {% for i in list %}
+    <tr>
+      <th>{{i.name}}</th>
+      <th>{{i.major}}</th>
+      <th><button type='bottun'>수정</button></th>
+      <th><button type='bottun'>삭제</button></th>
+    </tr>
+    {% endfor %}
+  </table>
+  <br><br>
+  <a href='/'><bottun>홈으로</bottun></a>
+  <a href='/students/write'><bottun>학생 추가</bottun></a>
+</body>
+</html>
