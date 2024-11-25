@@ -1,0 +1,358 @@
+
+MVT 모델
+Project_Name/urls.py -> App_Name/views.py
+
+--- 2024.11.14 ---
+
+장고 프로젝트 실행
+# New Project [프로젝트 생성]
+django-admin startproject [Project_Name]
+
+-- Project이름이 같은게 생성된다.
+Project_Name/Project_Name
+Project_Name/에서
+move Project_Name [변경할 이름]
+으로 변경 가능하다.
+변경 후 settings.py와 manage.py에
+변경한 이름으로 수정한다.
+settings.py
+WSGI_APPLICATION
+ROOT_URLCONF
+
+manage.py
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', '[변경].settings')
+
+-- app 생성
+# New app
+python manage.py startapp [App_Name]
+
+# App 추가 하고
+Project_Name/settings.py의
+INSTALLED_APPS =[]에
+App_Name.apps.[App_Name]Config 설정한다.
+
+# App 연결 설정
+Project_Name/urls.py에
+from django.urls import path, [include] 추가
+urlpatterns에
+path('App_name/', include('App_Name.urls')), 추가한다.
+
+# App urls.py 생성 및 설정
+from . import views 추가
+변수 app_name = 'App_Name'
+urlpatterns에
+path('url주소', views.[함수명], name='url이름')
+
+-- html 파일 ! 명령어 하기
+1. Extensions에서 Auto Close Tag 설치 후
+Add entry into auto-close-tag.activationOnLanguage
+내용 복사 후
+2. ctrl + ,
+3. setting 입력 -> Editor:Font Ligatures ->Edit in settings.json
+4. 복사한 내용 추가하기
+"emmet.includeLanguages": { "django-html": "html" },
+해당 내용 추가
+
+-- 한국어 설정
+Project_Name/settings.py의
+LANGUAGE_CODE = 'ko-kr'
+TIME_ZONE = 'Asia/Seoul'
+추가하기 및 수정하기
+
+-- DB 생성, 추가, 수정 등
+python manage.py migrate
+
+-- DB에 Table설치, 변경, 삭제, 추가 있는지 확인
+python .\manage.py makemigrations
+
+-- 관리자 등록
+python manage.py createsuperuser
+
+-- shell에서 db에 데이터 입력
+python manage.py shell
+from students.models import Student <- 해줘야함
+
+# insert
+qs = Student(s_name='hong1', s_major='컴퓨터공학', s_age=20, s_grade=1, s_gender='M')
+으로 입력 된다
+qs.save()로 저장한다.
+Student.objects.create(s_name='hong1', s_major='컴퓨터공학', s_age=20, s_grade=1, s_gender='M')
+create를 사용하면 save하지 않아도 된다.
+
+# select 복수
+sq = Student.objects.all()로 데이터를 가져올 수 있다.
+qs[0], qs[1]
+
+# select 1명
+qs = Student.objects.get(s_name='hong1')
+get => 한개만 넘어온다. 객체타입
+qs = Student.objects.filter(s_name='hong1')
+filter => 여러개를 가져온다. QuerySet타입
+qs.s_name
+
+# update
+qs = Student.objects.get(s_name='hong1')
+qs.s_age = 25
+qs.save()
+
+# delete
+qs = Student.objects.get(s_name='hong1')
+qs.delete()
+qs.save()
+Student.objects.get(s_name='hong1').delete()
+
+# where
+qs = Student.objects.filter(s_age__lt=21)
+__lt (보다 적다)
+__lte (보다 작거나 같다)
+__gt (보다 크다)
+__gte (크거나 같다)
+__isnull (Null이 포함되어 있다.)
+__contains (특정 문자열 포함)
+__startwith (특정 문자열로 시작)
+__endwith (특정 문자열로 끝)
+
+
+-- 서버 실행
+python -u manage.py runserver 0.0.0.0:8000
+-u : 실행되는 코드들 확인 가능하다.
+
+
+--- 2024.11.15 ---
+
+db 명령어 업데이트 위 확인
+
+-- 태그
+Template 태그 : {% 문법 %}
+Template 변수 : {{ 변수 }}
+Template 필터 : {{ 변수 | 옵션 }}
+
+-- Template 태그 : {% 문법 %}
+{% csrf_token %} : CSRF 공격 방지, form 태그의 첫 줄에 입력
+{% for %}{% endfor %} end 꼭 있어야 한다.
+
+-- 링크 방법
+<a href='{% url 'App_name:Func_name' %}'> 링크 방식 </a>
+<a href='students/write'> 주소 </a>
+
+-- form에서 views로 데이터 전달 방법
+1. form은 반드시 {% csrf_token %}을 먼저 작성한다.
+2. action부분에 views링크를 작성한다
+ex) {% url 'App_name:Func_name' %}
+App_name은 urls.py에 선언 한 값 이다.
+Func_name은 urls.py에서 path('경로', views.함수, name='해당값')
+
+
+-- from에서 전달받은 데이터 처리 방법
+1. views.py에
+from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from students.models import Student
+추가
+reverse 를 사용하면 App_name을 사용할 수 있다.
+
+2. request로 데이터를 전달 받는다.
+ex) name = request.POST['name']
+POST로 전달 했다면. request.POST
+GET으로 전달 했다면. request.GET
+
+3. 데이터 처리 후 return 방식
+return redirect('urls에 있는 path의 name') App_name
+return redirect(reverse('urls에 있는 path의 name'))
+return HttpResponseRedirect(reverse('urls에 있는 path의 name'))
+
+-- DB에 있는 데이터 전달하는 방법
+# 태그 알아두기
+# Template 태그 : {% 문법 %}
+# Template 변수 : {{ 변수 }}
+# Template 필터 : {{ 변수 | 옵션 }}
+ex) qs = Student.objects.all()
+학생데이터 전체를 받음
+context = {'list' : qs}
+전달 받은 데이터를 list 라는 이름으로 context에 저장
+return render(request, '전달 받을 페이지.html', context)
+리턴에서 context를 같이 전달한다.
+
+-- DB에 있는 데이터 전달 후 사용 방법
+1. 해당 페이지에서 {% context에서 전달한 변수명 %}
+방법으로 변수를 사용할 수 있다.
+
+-- admin 페이지에서 테이블 확인하기
+ex) students/admin.py 에서
+1. from students.models import Student
+만든 테이블 import 하기
+2. admin.site.register(Student)
+해당 코드 추가하기
+3. admin페이지에서 테이블 내용 출력해 주기
+Calss StudentAdmin(admin.ModelAdmin):
+  list_display = ['s_name', 's_major', 's_age']
+admin.site.register(Student, StudentAdmin)
+해당 코드를 추가해 준다.
+list_display에는 출력하고 싶은 컬럼의 이름을 작성한다.
+
+
+--- 2024.11.18 ---
+
+-- 데이터를 전송 할 때 i.name을 같이 보내는 방법
+# app_name을 사용한 데이터 전송
+<td><a href='{% url "students:sView" i.name %}'>{{i.name}}</a></td>
+# <str:name> 해당 데이터 받기
+# <int:no> int타입일 경우
+path('<str:name>/sView/', views.sView, name='sView'),
+
+**html -> views로 데이터 넘기는 방법**
+1. form으로 넘기는 방법
+2. app_name으로 url 링크
+3. url로 넘기는 방법
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+jquery 최신
+
+*** admin 페이지에 테이블 추가 ***
+admin.site.register(Student)
+*** admin 페이지 테이블 요소 출력 ***
+class StudentAdmin(admin.ModelAdmin):
+list_display = ['name', 'major', 'grade', 'age', 'gender']
+admin.site.register(Student, StudentAdmin)
+
+--- 2024-11-19 ---
+
+checkbox 데이터 받아오기
+request.POST.getlist('hobby')
+type => list
+db에 list 타입이 입력이 된다.
+
+--- 2024-11-20 ---
+
+cdata = models.DateTimeField(auto_now=True) # 자동으로 현재시간 입력
+# date 출력방법
+{{ m.cdate|date:'Y-m-d H:i' }}
+Y : 년도 4자리
+y : 년도 2자리
+
+- for 함수
+{{ forloop.counter }} 순차
+{{ forloop.counter0 }} 0부터 순차
+{{ forloop.reverscounter }} 1까지 역순
+{{ forloop.reverscounter0 }} 0까지 역순
+
+#쿠키
+- 클라이언트(사용자 PC)
+- Text형식
+- 브라우저 종료 여부 관계 없이,
+만료시점까지
+- 클라이언트(사용자PC) 사용
+
+#세션
+- 서버
+- objects
+- 원칙적으로 브라우저 종료시 삭제,
+장시간 켜둘 시 지정된 기간 뒤 삭제
+- 서버 리소스
+
+# 속도 = 쿠키>세션
+# 보안 = 쿠키<세션
+
+- 쿠키 예제
+def login(request):
+  print('쿠키 정보 : ',request.COOKIES)
+  response = render(request, 'login.html')
+  #쿠키 설정(저장)
+  response.set_cookie('cookinfo','1111', max_age=60*60)
+  # max_age = 60초 * 60분
+  return response
+
+saveId = request.POST.get('saveId', '값없음')
+checkbox의 경우 체그가 되지 않으면
+None값이들어온다.
+하지만 get('값', '값 없을경우')
+로 None값을 바꿀 수 있다.
+
+- 관리자 페이지에 한번에 추가하는 방법
+@admin.register(Member)
+class MemberAdmin(admin.ModelAdmin):
+  list_display = ['id', 'pw', 'name', 'nicname', 'mdate']
+
+--- 2024-11-21 ---
+
+- static[img, css, js] 파일 사용하기
+app -> static폴더 생성
+test.html최상단 {% load static %} 추가
+images 파일 사용하는 방법 2가지
+1. <img src='{% static "images/a01.jpg" %}'>
+2. <img src='/static/images/a02.jpg'>
+
+- css 파일 사용하기
+<link href='{% static "css/style.css" %}' rel='stylesheet'>
+
+- models datetimefield 옵션
+mdate = models.DateTimeField(auto_now_add=True)
+auto_now_add - 변경불가
+mdate = models.DateTimeField(auto_now=True)
+
+--- 2024-11-22 ----
+
+# static파일 불러오기
+import os
+STATICFILES_DIRS = (
+  os.path.join(BASE_DIR, 'static'),
+)
+
+-- for문 도는 방법
+{% for j in 'x'|rjust:i.bindent%}
+
+
+--- 2024-11-25 ---
+
+# root 디렉토리 - w01을 의미
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# static 폴더 설정
+# css, js, images 포함된다.
+import os
+STATIC_DIRS = (
+  os.path.join(BASE_DIR, 'static'),
+)
+
+# 이미지 경로 settings.py에 추가
+# media url로 들어오면, media폴더에서 검색
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# 로컬 드라이브 설정
+MEDIA_ROOT = r'c:/aaa'
+
+# img 파일 업로드
+bimg = models.ImageField(null=True, upload_to='board') # 이미지
+upload_to='board' 경로
+bimg = models.FileField(null=True) # 모든 파일
+
+# project의 urls에서
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns += static(settings.MEDIA_RUL, document_root=settings.MEDIA_ROOT)
+추가하기
+
+form 에 enctype="multipart/form-data" 추가
+
+
+
+
+# ip : 네트워크 컴퓨터 주소
+# dms(domain name system) : 도메인주소를 ip주소로 변환
+# ex) www.naver.com -> 211.11.111.2
+
+# rest URL -> URL 데이터 맵핑
+# file:///C:/workspace/20241114/test2.html?id=aaa&pw=1111
+# file:///C:/workspace/20241114/aaa/1111/test2.html
+
+# 웹서버
+# 주로 정적인 데이터 요청 처리
+# 동적인 데이터 요청 시 애플리케이션 서버 에전달
+# 트레픽 제한, ip차단 등
+
+# 애플리케이션 서버
+# 주로 동적인 데이터 요청 처리
+# Database 연동
